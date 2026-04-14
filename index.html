@@ -147,12 +147,32 @@
             transform: translateY(-5px);
         }
 
-        .support-box {
+        .support-box, .contact-box {
             background: rgba(10, 10, 10, 0.9);
             border: 1px solid var(--pink);
             padding: 5rem 2rem;
             text-align: center;
             box-shadow: 0 0 30px var(--pink-glow);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item h3 {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            color: var(--blue);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
         }
 
         .btn {
@@ -215,6 +235,7 @@
             <li><a href="#lookbook">Lookbook</a></li>
             <li><a href="#bts">BTS</a></li>
             <li><a href="#support">Support</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
@@ -271,6 +292,33 @@
             </p>
             <a href="https://www.indiegogo.com" target="_blank" class="btn">Back us on Indiegogo</a>
             <span class="launch-text">Launching Soon</span>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box" style="border-color: var(--blue); box-shadow: 0 0 30px var(--blue-glow);">
+            <h2 class="section-title" style="margin-bottom: 3rem;">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>Director</h3>
+                    <p>Tina Reeves</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Writer</h3>
+                    <p>Matt Dennis</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Producers</h3>
+                    <p>Jay Douglas<br>Richie Hildago<br>Tina Reeves</p>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #222; padding-top: 3rem;">
+                <h3 style="font-size: 0.75rem; letter-spacing: 5px; color: #555; margin-bottom: 1rem; text-transform: uppercase;">Production Company</h3>
+                <h2 style="letter-spacing: 10px; margin-bottom: 2rem;">1718 PRODUCTIONS</h2>
+                <a href="mailto:1718prod@1718prod.com" class="btn" style="border-color: var(--blue);">Send an Inquiry</a>
+            </div>
         </div>
     </section>
 
