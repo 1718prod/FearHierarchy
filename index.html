@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fear Hierarchy | Psychological Horror Short Film</title>
+    
+    <style>
+        /* ========================================
+           GLOBAL STYLES & RESET
+           ======================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #000000;
+            --pink: #ff2e88;
+            --white: #ffffff;
+            --blue: #1a8cff;
+            --pink-glow: rgba(255, 46, 136, 0.4);
+            --blue-glow: rgba(26, 140, 255, 0.4);
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========================================
+           GLOBAL DVD BOUNCE (PERSISTENT)
+           ======================================== */
+        #global-dvd-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; 
+            z-index: 1; 
+            overflow: hidden;
+        }
+
+        #bouncing-logo {
+            position: absolute;
+            font-size: clamp(1rem, 3vw, 2.5rem);
+            font-weight: 300;
+            letter-spacing: 8px;
+            color: var(--pink);
+            text-shadow: 0 0 15px var(--pink-glow);
+            white-space: nowrap;
+            padding: 15px;
+            will-change: transform;
+            line-height: 1;
+            opacity: 0.4; 
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 46, 136, 0.2);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--pink); text-shadow: 0 0 10px var(--pink-glow); }
+
+        /* ========================================
+           SECTIONS
+           ======================================== */
+        section { 
+            position: relative;
+            z-index: 10; 
+            padding: 8rem 2.5rem; 
+            max-width: 1300px; 
+            margin: 0 auto; 
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            margin: 2rem 0;
+            border: 1px solid var(--blue);
+            box-shadow: 0 0 20px var(--blue-glow);
+        }
+
+        .video-container iframe { width: 100%; height: 100%; border: none; }
+
+        .quote-box {
+            border-left: 4px solid var(--pink);
+            padding: 2.5rem;
+            background: rgba(255, 46, 136, 0.05);
+            font-style: italic;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin: 3rem 0;
+        }
+
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #222;
+            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 0.85;
+        }
+
+        .lookbook-item:hover img { 
+            opacity: 1; 
+            border-color: var(--pink);
+            transform: translateY(-5px);
+        }
+
+        .support-box {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid var(--pink);
+            padding: 5rem 2rem;
+            text-align: center;
+            box-shadow: 0 0 30px var(--pink-glow);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--pink);
+            color: white;
+            text-decoration: none;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            background: transparent;
+            margin: 10px;
+        }
+
+        .btn:hover { background: var(--pink); box-shadow: 0 0 25px var(--pink-glow); }
+
+        .section-title {
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 15px;
+            margin-bottom: 5rem;
+            text-transform: uppercase;
+        }
+
+        .instagram-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .lookbook-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="global-dvd-container">
+        <div id="bouncing-logo">FEAR HIERARCHY</div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#lookbook">Lookbook</a></li>
+            <li><a href="#bts">BTS</a></li>
+            <li><a href="#support">Support</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div style="background: rgba(0,0,0,0.85); padding: 5rem; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
+            <h1 style="font-size: clamp(2.5rem, 10vw, 6rem); letter-spacing: 25px; margin-bottom: 1.5rem;">FEAR HIERARCHY</h1>
+            <p style="letter-spacing: 10px; color: #888;">A PSYCHOLOGICAL HORROR FILM</p>
+        </div>
+    </section>
+
+    <section id="vision">
+        <h2 class="section-title">Director's Vision</h2>
+        <div class="quote-box">
+            "Fear Hierarchy was brought to me by Matthew to direct and immediately I was interested... Her being frozen in time means something to me. To remember every awful moment you want to forget. Healing is always possible but only after you face your demons."
+            <p style="text-align: right; margin-top: 2rem; color: var(--pink); font-style: normal; letter-spacing: 3px;">— TINA REEVES, DIRECTOR</p>
+        </div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/mA4UdTxRLwk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="lookbook">
+        <h2 class="section-title">Lookbook</h2>
+        <div class="lookbook-grid">
+            <div class="lookbook-item"><img src="assets/images/still_01.jpg" alt="Scene Still"></div>
+            <div class="lookbook-item"><img src="assets/images/location_pinks.jpg" alt="Location Still"></div>
+            <div class="lookbook-item"><img src="assets/images/extreme_cu_eyes.jpg" alt="Detail Still"></div>
+            <div class="lookbook-item"><img src="assets/images/bunny_mask.jpg" alt="Concept Mask"></div>
+            <div class="lookbook-item"><img src="assets/images/street_chalk.jpg" alt="Detail Still"></div>
+            <div class="lookbook-item"><img src="assets/images/burning_tv.jpg" alt="Prop Still"></div>
+        </div>
+    </section>
+
+    <section id="bts">
+        <h2 class="section-title">Behind The Scenes</h2>
+        <div class="instagram-wrapper">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWxOq_JDvLb/" data-instgrm-version="14" style="width:100%; max-width:540px; background:#000; border:1px solid var(--blue); margin: 0 auto;">
+                <div style="padding:16px;"> 
+                    <a href="https://www.instagram.com/reel/DWxOq_JDvLb/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                        <div style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;">
+                            View Rehearsal on Instagram
+                        </div>
+                    </a>
+                </div>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="support">
+        <div class="support-box">
+            <h2 style="letter-spacing: 10px; margin-bottom: 2.5rem;">SUPPORT THE PRODUCTION</h2>
+            <p style="margin-bottom: 4rem; max-width: 700px; margin: 0 auto 3rem; color: #999;">
+                Invest in the nightmare. Back our Indiegogo campaign to help bring this visceral journey to life.
+            </p>
+            <a href="https://www.indiegogo.com" target="_blank" class="btn">Back us on Indiegogo</a>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 6rem; border-top: 1px solid #111; position: relative; z-index: 10;">
+        <p style="letter-spacing: 5px; color: #333; font-size: 0.75rem;">&copy; 2026 1718 PRODUCTIONS | FEAR HIERARCHY</p>
+    </footer>
+
+    <script async src="https://www.instagram.com/embed.js"></script>
+
+    <script>
+        // DVD BOUNCE ENGINE
+        const logo = document.getElementById('bouncing-logo');
+        let x = Math.random() * (window.innerWidth - 200);
+        let y = Math.random() * (window.innerHeight - 100);
+        let xSpeed = 3; 
+        let ySpeed = 3;
+        const colors = ['#ff2e88', '#1a8cff', '#ffffff', '#00ffcc', '#ffea00'];
+
+        function update() {
+            const logoWidth = logo.offsetWidth;
+            const logoHeight = logo.offsetHeight;
+            if (x + logoWidth >= window.innerWidth || x <= 0) { xSpeed *= -1; changeColor(); }
+            if (y + logoHeight >= window.innerHeight || y <= 0) { ySpeed *= -1; changeColor(); }
+            x += xSpeed;
+            y += ySpeed;
+            logo.style.transform = `translate(${x}px, ${y}px)`;
+            requestAnimationFrame(update);
+        }
+
+        function changeColor() {
+            const c = colors[Math.floor(Math.random() * colors.length)];
+            logo.style.color = c;
+            logo.style.textShadow = `0 0 15px ${c}`;
+        }
+
+        window.addEventListener('resize', () => {
+            x = Math.min(x, window.innerWidth - logo.offsetWidth);
+            y = Math.min(y, window.innerHeight - logo.offsetHeight);
+        });
+
+        update();
+
+        // SMOOTH SCROLL
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const t = document.querySelector(a.getAttribute('href'));
+                if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
