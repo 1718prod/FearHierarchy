@@ -118,6 +118,26 @@
 
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
+        .story-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+
+        .festival-badge {
+            display: block;
+            margin: 2rem auto;
+            border: 1px solid var(--white);
+            padding: 1rem 2rem;
+            width: fit-content;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
         .quote-box {
             border-left: 4px solid var(--pink);
             padding: 2.5rem;
@@ -191,6 +211,9 @@
 
         .btn:hover { background: var(--pink); box-shadow: 0 0 25px var(--pink-glow); }
 
+        .btn.blue { border-color: var(--blue); }
+        .btn.blue:hover { background: var(--blue); box-shadow: 0 0 25px var(--blue-glow); }
+
         .launch-text {
             display: block;
             margin-top: 1.5rem;
@@ -232,6 +255,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#vision">Vision</a></li>
+            <li><a href="#story">The Story</a></li>
             <li><a href="#lookbook">Lookbook</a></li>
             <li><a href="#bts">BTS</a></li>
             <li><a href="#support">Support</a></li>
@@ -254,6 +278,18 @@
         </div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/mA4UdTxRLwk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="story">
+        <h2 class="section-title">The Story</h2>
+        <div class="story-text">
+            <p style="margin-bottom: 3rem; color: var(--white);">
+                To overcome a fear of the dark before marrying her fiancé, a woman must confront the darker truth behind her phobia, before it destroys their relationship.
+            </p>
+            <p style="font-size: 1.1rem; color: #888; font-style: italic; font-family: sans-serif; letter-spacing: 2px;">
+                Fear Hierarchy explores the psychological landscape where trauma manifests as physical paralysis, and the journey toward healing requires facing the memories we've buried deepest.
+            </p>
         </div>
     </section>
 
@@ -286,12 +322,30 @@
 
     <section id="support">
         <div class="support-box">
+            <div style="margin-bottom: 5rem;">
+                <p style="letter-spacing: 5px; font-size: 0.75rem; color: var(--blue); text-transform: uppercase; margin-bottom: 1rem;">Coming Soon</p>
+                <h2 style="letter-spacing: 10px; margin-bottom: 1.5rem; font-weight: 400;">A HORROR ANTHOLOGY</h2>
+                <p style="color: #888; letter-spacing: 2px; font-style: italic; margin-bottom: 2rem;">Presented by Insomniac Films</p>
+                
+                <div class="festival-badge">
+                    Primary Target Premiere:<br>
+                    <span style="color: var(--pink); font-size: 1.2rem;">Screamfest Horror Film Festival</span><br>
+                    Los Angeles
+                </div>
+            </div>
+
             <h2 style="letter-spacing: 10px; margin-bottom: 2.5rem;">SUPPORT THE PRODUCTION</h2>
             <p style="margin-bottom: 4rem; max-width: 700px; margin: 0 auto 3rem; color: #999;">
                 Invest in the nightmare. Back our Indiegogo campaign to help bring this visceral journey to life.
             </p>
             <a href="https://www.indiegogo.com" target="_blank" class="btn">Back us on Indiegogo</a>
             <span class="launch-text">Launching Soon</span>
+
+            <div style="margin-top: 6rem; border-top: 1px solid #222; padding-top: 4rem;">
+                <h2 style="letter-spacing: 12px; margin-bottom: 2rem; font-size: 1.2rem;">INSOMNIAC FILMS</h2>
+                <a href="https://www.patreon.com/InsomniacFilmCompany" target="_blank" class="btn blue" style="padding: 0.8rem 2rem; font-size: 0.7rem;">Patreon</a>
+                <a href="https://www.youtube.com/@insomniacfilmcompany" target="_blank" class="btn blue" style="padding: 0.8rem 2rem; font-size: 0.7rem;">YouTube</a>
+            </div>
         </div>
     </section>
 
@@ -317,7 +371,7 @@
             <div style="border-top: 1px solid #222; padding-top: 3rem;">
                 <h3 style="font-size: 0.75rem; letter-spacing: 5px; color: #555; margin-bottom: 1rem; text-transform: uppercase;">Production Company</h3>
                 <h2 style="letter-spacing: 10px; margin-bottom: 2rem;">1718 PRODUCTIONS</h2>
-                <a href="mailto:1718prod@1718prod.com" class="btn" style="border-color: var(--blue);">Send an Inquiry</a>
+                <a href="mailto:1718prod@1718prod.com" class="btn blue">Send an Inquiry</a>
             </div>
         </div>
     </section>
