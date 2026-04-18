@@ -6,9 +6,6 @@
     <title>Fear Hierarchy | Psychological Horror Short Film</title>
     
     <style>
-        /* ========================================
-           GLOBAL STYLES & RESET
-           ======================================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
@@ -21,22 +18,18 @@
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: 'Georgia', serif;
             background-color: var(--black);
             color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* ========================================
-           GLOBAL DVD BOUNCE (PERSISTENT)
-           ======================================== */
+        /* DVD BOUNCE LOGO */
         #global-dvd-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             pointer-events: none; 
             z-index: 1; 
             overflow: hidden;
@@ -52,17 +45,13 @@
             white-space: nowrap;
             padding: 15px;
             will-change: transform;
-            line-height: 1;
             opacity: 0.4; 
         }
 
-        /* ========================================
-           NAVIGATION
-           ======================================== */
+        /* NAVIGATION */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -73,10 +62,8 @@
         nav ul {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             list-style: none;
             gap: clamp(0.8rem, 2vw, 1.5rem);
-            padding: 0 10px;
         }
 
         nav a {
@@ -85,14 +72,9 @@
             font-size: clamp(0.6rem, 1.5vw, 0.75rem);
             letter-spacing: 2px;
             text-transform: uppercase;
-            transition: 0.3s;
         }
 
-        nav a:hover { color: var(--pink); text-shadow: 0 0 10px var(--pink-glow); }
-
-        /* ========================================
-           SECTIONS
-           ======================================== */
+        /* HERO SECTION - NO BORDERS */
         section { 
             position: relative;
             z-index: 10; 
@@ -115,7 +97,7 @@
             letter-spacing: clamp(10px, 4vw, 25px); 
             margin-bottom: 1rem;
             font-weight: 200;
-            text-indent: 25px; /* Visual centering for wide tracking */
+            text-indent: 25px;
         }
 
         .hero p {
@@ -125,38 +107,7 @@
             text-transform: uppercase;
         }
 
-        .video-container {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000;
-            margin: 2rem 0;
-            border: 1px solid var(--blue);
-            box-shadow: 0 0 20px var(--blue-glow);
-        }
-
-        .video-container iframe { width: 100%; height: 100%; border: none; }
-
-        .story-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-            line-height: 1.8;
-            letter-spacing: 1px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-weight: 300;
-            letter-spacing: clamp(8px, 2vw, 15px);
-            margin-bottom: clamp(3rem, 7vh, 5rem);
-            text-transform: uppercase;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-        }
-
-        /* ========================================
-           LOOKBOOK GRID 
-           ======================================== */
+        /* LOOKBOOK GRID */
         .lookbook-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 45%, 400px), 1fr));
@@ -168,14 +119,14 @@
             aspect-ratio: 16 / 9;
             overflow: hidden;
             border: 1px solid #222;
-            background: #050505;
+            background-color: #0a0a0a; /* Shows if image is missing */
         }
 
         .lookbook-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: 0.6s ease;
             opacity: 0.8;
             display: block;
         }
@@ -185,54 +136,36 @@
             transform: scale(1.05);
         }
 
-        /* ========================================
-           SUPPORT & CONTACT
-           ======================================== */
-        .support-box, .contact-box {
-            background: rgba(10, 10, 10, 0.95);
-            border: 1px solid var(--pink);
-            padding: clamp(3rem, 8vw, 5rem) 1.5rem;
-            text-align: center;
-            box-shadow: 0 0 30px var(--pink-glow);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
+        .quote-box {
+            border-left: 2px solid var(--pink);
+            padding: 2rem;
+            background: rgba(255, 46, 136, 0.05);
+            font-style: italic;
             margin-bottom: 3rem;
         }
 
         .btn {
             display: inline-block;
-            padding: 1.2rem clamp(1.5rem, 5vw, 3rem);
-            border: 2px solid var(--pink);
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--pink);
             color: white;
             text-decoration: none;
             letter-spacing: 4px;
             text-transform: uppercase;
             font-size: 0.8rem;
-            transition: 0.3s;
-            background: transparent;
             margin: 10px;
+            transition: 0.3s;
         }
 
-        .btn:hover { background: var(--pink); box-shadow: 0 0 25px var(--pink-glow); }
-        .btn.blue { border-color: var(--blue); }
-        .btn.blue:hover { background: var(--blue); box-shadow: 0 0 25px var(--blue-glow); }
+        .btn:hover { background: var(--pink); box-shadow: 0 0 20px var(--pink-glow); }
 
         footer {
             text-align: center;
             padding: 4rem 1rem;
             border-top: 1px solid #111;
-            position: relative;
-            z-index: 10;
-        }
-
-        @media (max-width: 600px) {
-            nav { padding: 0.5rem 0; }
-            section { padding: 4rem 1rem; }
-            .hero { height: 85vh; }
+            opacity: 0.4;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -246,9 +179,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#vision">Vision</a></li>
-            <li><a href="#story">Story</a></li>
             <li><a href="#lookbook">Lookbook</a></li>
-            <li><a href="#bts">BTS</a></li>
             <li><a href="#support">Support</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -261,84 +192,39 @@
     </section>
 
     <section id="vision">
-        <h2 class="section-title">Director's Vision</h2>
+        <h2 style="letter-spacing: 10px; text-transform: uppercase; font-weight: 300; margin-bottom: 2rem; text-align: center;">Director's Vision</h2>
         <div class="quote-box">
-            "Fear Hierarchy was brought to me by Matthew to direct and immediately I was interested... Her being frozen in time means something to me. To remember every awful moment you want to forget. Healing is always possible but only after you face your demons."
-            <p style="text-align: right; margin-top: 2rem; color: var(--pink); font-style: normal; letter-spacing: 3px;">— TINA REEVES, DIRECTOR</p>
-        </div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/mA4UdTxRLwk" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <section id="story">
-        <h2 class="section-title">The Story</h2>
-        <div class="story-text">
-            <p style="margin-bottom: 3rem; color: var(--white);">
-                To overcome a fear of the dark before marrying her fiancé, a woman must confront the darker truth behind her phobia, before it destroys their relationship.
-            </p>
-            <p style="font-size: 1rem; color: #888; font-style: italic; letter-spacing: 2px;">
-                Fear Hierarchy explores the psychological landscape where trauma manifests as physical paralysis.
-            </p>
+            "Fear Hierarchy was brought to me by Matthew to direct and immediately I was interested... Healing is always possible but only after you face your demons."
+            <p style="text-align: right; margin-top: 1.5rem; color: var(--pink); font-style: normal;">— TINA REEVES, DIRECTOR</p>
         </div>
     </section>
 
     <section id="lookbook">
-        <h2 class="section-title">Lookbook</h2>
+        <h2 style="letter-spacing: 10px; text-transform: uppercase; font-weight: 300; margin-bottom: 2rem; text-align: center;">Lookbook</h2>
         <div class="lookbook-grid">
-            <div class="lookbook-item"><img src="still_01.jpg" alt="Scene Still"></div>
-            <div class="lookbook-item"><img src="location_pinks.jpg" alt="Location Still"></div>
-            <div class="lookbook-item"><img src="extreme_cu_eyes.jpg" alt="Detail Still"></div>
-            <div class="lookbook-item"><img src="bunny_mask.jpg" alt="Concept Mask"></div>
-            <div class="lookbook-item"><img src="burning_tv.jpg" alt="Prop Still"></div>
+            <div class="lookbook-item"><img src="./still_01.jpg" alt="Scene Still"></div>
+            <div class="lookbook-item"><img src="./location_pinks.jpg" alt="Location Still"></div>
+            <div class="lookbook-item"><img src="./extreme_cu_eyes.jpg" alt="Detail Still"></div>
+            <div class="lookbook-item"><img src="./bunny_mask.jpg" alt="Concept Mask"></div>
+            <div class="lookbook-item"><img src="./burning_tv.jpg" alt="Prop Still"></div>
         </div>
     </section>
 
-    <section id="bts">
-        <h2 class="section-title">Behind The Scenes</h2>
-        <div style="display: flex; justify-content: center;">
-            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWxOq_JDvLb/" data-instgrm-version="14" style="width:100%; max-width:540px; background:#000; border:1px solid var(--blue);">
-                <div style="padding:16px;"> 
-                    <a href="https://www.instagram.com/reel/DWxOq_JDvLb/" style="color:#c9c8cd; text-decoration:none;" target="_blank">View Rehearsal on Instagram</a>
-                </div>
-            </blockquote>
-        </div>
+    <section id="support" style="text-align: center;">
+        <h2 style="letter-spacing: 8px; text-transform: uppercase; font-weight: 300; margin-bottom: 2rem;">Support</h2>
+        <a href="https://www.indiegogo.com" target="_blank" class="btn">Indiegogo</a>
+        <a href="https://www.patreon.com/InsomniacFilmCompany" target="_blank" class="btn" style="border-color: var(--blue);">Patreon</a>
     </section>
 
-    <section id="support">
-        <div class="support-box">
-            <h2 style="letter-spacing: 10px; margin-bottom: 2.5rem; font-weight: 400;">SUPPORT THE PRODUCTION</h2>
-            <p style="margin-bottom: 3rem; color: #999;">Invest in the nightmare. Back our Indiegogo campaign to help bring this visceral journey to life.</p>
-            <a href="https://www.indiegogo.com" target="_blank" class="btn">Back us on Indiegogo</a>
-            
-            <div style="margin-top: 4rem; border-top: 1px solid #222; padding-top: 3rem;">
-                <h2 style="letter-spacing: 8px; margin-bottom: 1.5rem; font-size: 1rem;">INSOMNIAC FILM COMPANY</h2>
-                <a href="https://www.patreon.com/InsomniacFilmCompany" target="_blank" class="btn blue">Patreon</a>
-                <a href="https://www.youtube.com/@insomniacfilmcompany" target="_blank" class="btn blue">YouTube</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="contact-box" style="border-color: var(--blue); box-shadow: 0 0 30px var(--blue-glow);">
-            <h2 class="section-title" style="margin-bottom: 3rem;">Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-item"><h3>Director</h3><p>Tina Reeves</p></div>
-                <div class="contact-item"><h3>Writer</h3><p>Matt Dennis</p></div>
-                <div class="contact-item"><h3>Producers</h3><p>Jay Douglas<br>Richie Hildago</p></div>
-            </div>
-            <div style="border-top: 1px solid #222; padding-top: 2rem;">
-                <h2 style="letter-spacing: 6px; margin-bottom: 1rem;">1718 PRODUCTIONS</h2>
-                <a href="mailto:1718prod@1718prod.com" class="btn blue">Inquiry</a>
-            </div>
-        </div>
+    <section id="contact" style="text-align: center;">
+        <h2 style="letter-spacing: 6px; text-transform: uppercase; font-weight: 300;">1718 PRODUCTIONS</h2>
+        <p style="color: #666; margin-bottom: 2rem;">Haltom City, TX</p>
+        <a href="mailto:1718prod@1718prod.com" class="btn" style="border-color: var(--blue);">Send Inquiry</a>
     </section>
 
     <footer>
-        <p>&copy; 2026 1718 PRODUCTIONS | FEAR HIERARCHY</p>
+        &copy; 2026 1718 PRODUCTIONS | FEAR HIERARCHY
     </footer>
-
-    <script async src="https://www.instagram.com/embed.js"></script>
 
     <script>
         const logo = document.getElementById('bouncing-logo');
@@ -371,14 +257,6 @@
         });
 
         update();
-
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const t = document.querySelector(a.getAttribute('href'));
-                if (t) window.scrollTo({ top: t.offsetTop - 60, behavior: 'smooth' });
-            });
-        });
     </script>
 </body>
 </html>
