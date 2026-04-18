@@ -44,7 +44,7 @@
 
         #bouncing-logo {
             position: absolute;
-            font-size: clamp(1rem, 3vw, 2.5rem);
+            font-size: clamp(0.9rem, 2.5vw, 2rem);
             font-weight: 300;
             letter-spacing: 8px;
             color: var(--pink);
@@ -73,14 +73,16 @@
         nav ul {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             list-style: none;
-            gap: 1.5rem;
+            gap: clamp(0.8rem, 2vw, 1.5rem);
+            padding: 0 10px;
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: clamp(0.6rem, 1.5vw, 0.75rem);
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: 0.3s;
@@ -94,7 +96,7 @@
         section { 
             position: relative;
             z-index: 10; 
-            padding: 8rem 2.5rem; 
+            padding: clamp(4rem, 10vh, 8rem) clamp(1rem, 5vw, 2.5rem); 
             max-width: 1300px; 
             margin: 0 auto; 
         }
@@ -102,9 +104,26 @@
         .hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 10vw, 6rem); 
+            letter-spacing: clamp(10px, 4vw, 25px); 
+            margin-bottom: 1.5rem;
+            font-weight: 200;
+            /* Visual centering for tracking */
+            text-indent: clamp(10px, 4vw, 25px); 
+        }
+
+        .hero p {
+            letter-spacing: clamp(5px, 2vw, 10px); 
+            color: #888;
+            font-size: clamp(0.7rem, 1.5vw, 1rem);
+            text-transform: uppercase;
         }
 
         .video-container {
@@ -122,7 +141,7 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.6rem);
             line-height: 1.8;
             letter-spacing: 1px;
         }
@@ -135,21 +154,34 @@
             width: fit-content;
             letter-spacing: 5px;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: clamp(0.6rem, 1.2vw, 0.8rem);
+            text-align: center;
         }
 
         .quote-box {
             border-left: 4px solid var(--pink);
-            padding: 2.5rem;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
             background: rgba(255, 46, 136, 0.05);
             font-style: italic;
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-size: clamp(1rem, 2vw, 1.4rem);
             margin: 3rem 0;
         }
 
+        .section-title {
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: clamp(8px, 2vw, 15px);
+            margin-bottom: clamp(3rem, 7vh, 5rem);
+            text-transform: uppercase;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+        }
+
+        /* ========================================
+           LOOKBOOK GRID 
+           ======================================== */
         .lookbook-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 45%, 400px), 1fr));
             gap: 2rem;
         }
 
@@ -159,6 +191,7 @@
             border: 1px solid #222;
             transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             opacity: 0.85;
+            display: block;
         }
 
         .lookbook-item:hover img { 
@@ -167,50 +200,39 @@
             transform: translateY(-5px);
         }
 
+        /* ========================================
+           BOXES & BUTTONS
+           ======================================== */
         .support-box, .contact-box {
             background: rgba(10, 10, 10, 0.9);
             border: 1px solid var(--pink);
-            padding: 5rem 2rem;
+            padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 3vw, 2rem);
             text-align: center;
             box-shadow: 0 0 30px var(--pink-glow);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
 
-        .contact-item h3 {
-            font-size: 0.7rem;
-            letter-spacing: 3px;
-            color: var(--blue);
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item p {
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-
         .btn {
             display: inline-block;
-            padding: 1.2rem 3rem;
+            padding: 1.2rem clamp(1.5rem, 5vw, 3rem);
             border: 2px solid var(--pink);
             color: white;
             text-decoration: none;
             letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: clamp(0.7rem, 1.2vw, 0.9rem);
             transition: 0.3s;
             background: transparent;
             margin: 10px;
         }
 
         .btn:hover { background: var(--pink); box-shadow: 0 0 25px var(--pink-glow); }
-
         .btn.blue { border-color: var(--blue); }
         .btn.blue:hover { background: var(--blue); box-shadow: 0 0 25px var(--blue-glow); }
 
@@ -224,24 +246,18 @@
             opacity: 0.8;
         }
 
-        .section-title {
+        footer {
             text-align: center;
-            font-weight: 300;
-            letter-spacing: 15px;
-            margin-bottom: 5rem;
-            text-transform: uppercase;
+            padding: 4rem 1rem;
+            border-top: 1px solid #111;
+            position: relative;
+            z-index: 10;
         }
 
-        .instagram-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 400px;
-            justify-content: center;
-        }
-
-        @media (max-width: 768px) {
-            .lookbook-grid { grid-template-columns: 1fr; }
+        @media (max-width: 600px) {
+            nav { padding: 0.6rem 0; }
+            section { padding: 4rem 1.5rem; }
+            .hero { height: 80vh; }
         }
     </style>
 </head>
@@ -264,9 +280,9 @@
     </nav>
 
     <section id="home" class="hero">
-        <div style="background: rgba(0,0,0,0.85); padding: 5rem; border: 1px solid rgba(255,255,255,0.05); backdrop-filter: blur(10px);">
-            <h1 style="font-size: clamp(2.5rem, 10vw, 6rem); letter-spacing: 25px; margin-bottom: 1.5rem;">FEAR HIERARCHY</h1>
-            <p style="letter-spacing: 10px; color: #888;">A PSYCHOLOGICAL HORROR FILM</p>
+        <div>
+            <h1>FEAR HIERARCHY</h1>
+            <p>A PSYCHOLOGICAL HORROR FILM</p>
         </div>
     </section>
 
@@ -287,7 +303,7 @@
             <p style="margin-bottom: 3rem; color: var(--white);">
                 To overcome a fear of the dark before marrying her fiancé, a woman must confront the darker truth behind her phobia, before it destroys their relationship.
             </p>
-            <p style="font-size: 1.1rem; color: #888; font-style: italic; font-family: sans-serif; letter-spacing: 2px;">
+            <p style="font-size: 1.1rem; color: #888; font-style: italic; letter-spacing: 2px;">
                 Fear Hierarchy explores the psychological landscape where trauma manifests as physical paralysis, and the journey toward healing requires facing the memories we've buried deepest.
             </p>
         </div>
@@ -307,11 +323,11 @@
 
     <section id="bts">
         <h2 class="section-title">Behind The Scenes</h2>
-        <div class="instagram-wrapper">
+        <div style="display: flex; justify-content: center; min-height: 400px;">
             <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DWxOq_JDvLb/" data-instgrm-version="14" style="width:100%; max-width:540px; background:#000; border:1px solid var(--blue); margin: 0 auto;">
                 <div style="padding:16px;"> 
-                    <a href="https://www.instagram.com/reel/DWxOq_JDvLb/" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
-                        <div style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;">
+                    <a href="https://www.instagram.com/reel/DWxOq_JDvLb/" style="background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+                        <div style="color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;">
                             View Rehearsal on Instagram
                         </div>
                     </a>
@@ -325,7 +341,7 @@
             <div style="margin-bottom: 5rem;">
                 <p style="letter-spacing: 5px; font-size: 0.75rem; color: var(--blue); text-transform: uppercase; margin-bottom: 1rem;">Coming Soon</p>
                 <h2 style="letter-spacing: 10px; margin-bottom: 1.5rem; font-weight: 400;">A HORROR ANTHOLOGY</h2>
-                <p style="color: #888; letter-spacing: 2px; font-style: italic; margin-bottom: 2rem;">Presented by Insomniac Films</p>
+                <p style="color: #888; letter-spacing: 2px; font-style: italic; margin-bottom: 2rem;">Presented by 1718 Productions</p>
                 
                 <div class="festival-badge">
                     Primary Target Premiere:<br>
@@ -342,7 +358,7 @@
             <span class="launch-text">Launching Soon</span>
 
             <div style="margin-top: 6rem; border-top: 1px solid #222; padding-top: 4rem;">
-                <h2 style="letter-spacing: 12px; margin-bottom: 2rem; font-size: 1.2rem;">INSOMNIAC FILMS</h2>
+                <h2 style="letter-spacing: 12px; margin-bottom: 2rem; font-size: 1.2rem;">INSOMNIAC FILM COMPANY</h2>
                 <a href="https://www.patreon.com/InsomniacFilmCompany" target="_blank" class="btn blue" style="padding: 0.8rem 2rem; font-size: 0.7rem;">Patreon</a>
                 <a href="https://www.youtube.com/@insomniacfilmcompany" target="_blank" class="btn blue" style="padding: 0.8rem 2rem; font-size: 0.7rem;">YouTube</a>
             </div>
@@ -355,15 +371,15 @@
             
             <div class="contact-grid">
                 <div class="contact-item">
-                    <h3>Director</h3>
+                    <h3 style="font-size: 0.7rem; letter-spacing: 3px; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem;">Director</h3>
                     <p>Tina Reeves</p>
                 </div>
                 <div class="contact-item">
-                    <h3>Writer</h3>
+                    <h3 style="font-size: 0.7rem; letter-spacing: 3px; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem;">Writer</h3>
                     <p>Matt Dennis</p>
                 </div>
                 <div class="contact-item">
-                    <h3>Producers</h3>
+                    <h3 style="font-size: 0.7rem; letter-spacing: 3px; color: var(--blue); text-transform: uppercase; margin-bottom: 0.5rem;">Producers</h3>
                     <p>Jay Douglas<br>Richie Hildago<br>Tina Reeves</p>
                 </div>
             </div>
@@ -376,7 +392,7 @@
         </div>
     </section>
 
-    <footer style="text-align: center; padding: 6rem; border-top: 1px solid #111; position: relative; z-index: 10;">
+    <footer>
         <p style="letter-spacing: 5px; color: #333; font-size: 0.75rem;">&copy; 2026 1718 PRODUCTIONS | FEAR HIERARCHY</p>
     </footer>
 
@@ -387,8 +403,8 @@
         const logo = document.getElementById('bouncing-logo');
         let x = Math.random() * (window.innerWidth - 200);
         let y = Math.random() * (window.innerHeight - 100);
-        let xSpeed = 3; 
-        let ySpeed = 3;
+        let xSpeed = 2.5; 
+        let ySpeed = 2.5;
         const colors = ['#ff2e88', '#1a8cff', '#ffffff', '#00ffcc', '#ffea00'];
 
         function update() {
@@ -420,7 +436,7 @@
             a.addEventListener('click', e => {
                 e.preventDefault();
                 const t = document.querySelector(a.getAttribute('href'));
-                if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+                if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
             });
         });
     </script>
