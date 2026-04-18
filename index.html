@@ -108,20 +108,21 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* Border and backdrop-filter removed here to let DVD logo pass through */
         }
 
         .hero h1 {
-            font-size: clamp(2rem, 10vw, 6rem); 
+            font-size: clamp(2.5rem, 10vw, 6.5rem); 
             letter-spacing: clamp(10px, 4vw, 25px); 
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             font-weight: 200;
+            text-indent: 25px; /* Visual centering for wide tracking */
         }
 
         .hero p {
-            letter-spacing: clamp(5px, 2vw, 10px); 
+            letter-spacing: clamp(5px, 2vw, 12px); 
             color: #888;
             font-size: clamp(0.7rem, 1.5vw, 1rem);
+            text-transform: uppercase;
         }
 
         .video-container {
@@ -154,7 +155,7 @@
         }
 
         /* ========================================
-           LOOKBOOK GRID OPTIMIZATION
+           LOOKBOOK GRID 
            ======================================== */
         .lookbook-grid {
             display: grid;
@@ -167,6 +168,7 @@
             aspect-ratio: 16 / 9;
             overflow: hidden;
             border: 1px solid #222;
+            background: #050505;
         }
 
         .lookbook-item img {
@@ -174,13 +176,12 @@
             height: 100%;
             object-fit: cover;
             transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            opacity: 0.85;
+            opacity: 0.8;
             display: block;
         }
 
         .lookbook-item:hover img { 
             opacity: 1; 
-            border-color: var(--pink);
             transform: scale(1.05);
         }
 
@@ -220,7 +221,6 @@
         .btn.blue { border-color: var(--blue); }
         .btn.blue:hover { background: var(--blue); box-shadow: 0 0 25px var(--blue-glow); }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 4rem 1rem;
@@ -229,11 +229,10 @@
             z-index: 10;
         }
 
-        /* MOBILE FIXES */
         @media (max-width: 600px) {
             nav { padding: 0.5rem 0; }
             section { padding: 4rem 1rem; }
-            .hero { height: 80vh; }
+            .hero { height: 85vh; }
         }
     </style>
 </head>
@@ -256,7 +255,7 @@
     </nav>
 
     <section id="home" class="hero">
-        <p style="text-transform: uppercase; font-weight: bold; margin-bottom: 0.5rem;">Insomniac Films Presents</p>
+        <p>1718 Productions Presents</p>
         <h1>FEAR HIERARCHY</h1>
         <p>A PSYCHOLOGICAL HORROR FILM</p>
     </section>
@@ -268,7 +267,7 @@
             <p style="text-align: right; margin-top: 2rem; color: var(--pink); font-style: normal; letter-spacing: 3px;">— TINA REEVES, DIRECTOR</p>
         </div>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/mA4UdTxRLwk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/mA4UdTxRLwk" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -287,10 +286,11 @@
     <section id="lookbook">
         <h2 class="section-title">Lookbook</h2>
         <div class="lookbook-grid">
-            <div class="lookbook-item"><img src="Page_1_Firefly_Cinematic psychological horror still frame, closed bedroom door glowing with soft pin 184706.jpg" alt="Bedroom Door"></div>
-            <div class="lookbook-item"><img src="Firefly_light bathe it in pink 713996.jpg" alt="Pink Lighting"></div>
-            <div class="lookbook-item"><img src="9ec42b59-0a9a-48d4-ab5e-5f417477c621.jpg" alt="Hallway Still"></div>
-            <div class="lookbook-item"><img src="Capture d’écran 2026-02-26 162954.jpg" alt="Rehearsal Still"></div>
+            <div class="lookbook-item"><img src="still_01.jpg" alt="Scene Still"></div>
+            <div class="lookbook-item"><img src="location_pinks.jpg" alt="Location Still"></div>
+            <div class="lookbook-item"><img src="extreme_cu_eyes.jpg" alt="Detail Still"></div>
+            <div class="lookbook-item"><img src="bunny_mask.jpg" alt="Concept Mask"></div>
+            <div class="lookbook-item"><img src="burning_tv.jpg" alt="Prop Still"></div>
         </div>
     </section>
 
@@ -312,7 +312,7 @@
             <a href="https://www.indiegogo.com" target="_blank" class="btn">Back us on Indiegogo</a>
             
             <div style="margin-top: 4rem; border-top: 1px solid #222; padding-top: 3rem;">
-                <h2 style="letter-spacing: 8px; margin-bottom: 1.5rem; font-size: 1rem;">INSOMNIAC FILMS</h2>
+                <h2 style="letter-spacing: 8px; margin-bottom: 1.5rem; font-size: 1rem;">INSOMNIAC FILM COMPANY</h2>
                 <a href="https://www.patreon.com/InsomniacFilmCompany" target="_blank" class="btn blue">Patreon</a>
                 <a href="https://www.youtube.com/@insomniacfilmcompany" target="_blank" class="btn blue">YouTube</a>
             </div>
